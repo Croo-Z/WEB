@@ -12,6 +12,8 @@ db.likes = new DataStore({filename : "./bdLike.json"})
 db.likes.loadDatabase()
 db.pp = new DataStore({filename : "./bdPP.json"})
 db.pp.loadDatabase()
+db.bio = new DataStore({filename : "./bdBIO.json"})
+db.bio.loadDatabase()
 
 
 // Détermine le répertoire de base
@@ -31,6 +33,7 @@ api_1 = require("./apiuser.js");
 api_2 = require("./apiFriend.js")
 api_3 = require("./apiMessage.js")
 api_4 = require("./apiPP.js")
+api_5 = require("./apiBio.js")
 const session = require("express-session");
 
 app.use(session({
@@ -43,6 +46,7 @@ app.use('/api', api_1.default(db));
 app.use('/api',api_2.default(db));
 app.use('/api',api_3.default(db));
 app.use('/api',api_4.default(db));
+app.use('/api',api_5.default(db));
 
 // Démarre le serveur
 app.on('close', () => {
