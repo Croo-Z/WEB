@@ -90,7 +90,7 @@ class SigninForm extends Component{
                 <div className="iconHolder">
                     <RiLockPasswordFill className="icons"/>
                 </div>
-                <input id="password" className="champ" name="password" type="text" ref={input => { this.firstInput = input }} placeholder="Password"/>
+                <input id="password" className="champ" name="password" type="password" ref={input => { this.firstInput = input }} placeholder="Password"/>
             </div>
             <div className="infoP">
             <div className="iconHolder">
