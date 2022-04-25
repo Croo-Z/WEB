@@ -22,7 +22,7 @@ axios.defaults.withCredentials = true;
 class Profil extends Component{
     constructor(props){
         super(props)
-        this.state = {nbM : 0,followed : false,isMe : false,pp : -1}
+        this.state = {nbM : 0,followed : false,isMe : false,pp : -1,bio : ""}
         this.following = this.following.bind(this)
         this.getIfFollow = this.getIfFollow.bind(this)
         this.isMe = this.isMe.bind(this)
@@ -30,6 +30,7 @@ class Profil extends Component{
         this.click = this.click.bind(this)
         this.getPP = this.getPP.bind(this)
         this.choosePP = this.choosePP.bind(this)
+        this.getBIO = this.getBIO.bind(this)
     }
 
     getPP(){
@@ -40,10 +41,20 @@ class Profil extends Component{
         .catch((err) => console.log(err)) 
     }
 
+    getBIO(){
+        axios.get("http://localhost:4000/api/bio/get/"+this.props.login,{},{withCredentials : true})
+        .then((res) => {
+            console.log(res.data)
+            this.setState({bio : res.data.bio})
+        })
+        .catch((err) => console.log(err)) 
+    }
+
     componentDidMount(){
         this.isMe()
         this.getIfFollow()
         this.getPP()
+        this.getBIO()
 
         axios.get("http://localhost:4000/api/messages/user/"+this.props.login+"/messages/",{},{withCredentials : true})
         .then((res) => {
@@ -92,7 +103,6 @@ class Profil extends Component{
     click(){
         this.props.edit()
     }
-    
 
     choosePP(){
         if (this.state.pp == 1){
@@ -136,7 +146,7 @@ class Profil extends Component{
                         <span className="NameProfil">{this.props.login}</span>
                         {this.following()}
                     </div>
-                    <div className="bioText"><p id="text">Salut c'est la bio</p></div>
+                    <div className="bioText"> {this.state.isMe ? <MdModeEditOutline id="editBIO" onClick={this.props.editBIO}/>  : <span></span> }<p id="text">{this.state.bio}</p></div>
                 </div>
                 <ListMessage goToProfil={this.props.goToProfil} key={this.props.login + this.state.nbM} login={this.props.login}/>
             </div>

@@ -28,6 +28,9 @@ class Twall extends Component{
         this.edit = this.edit.bind(this)
         this.valider = this.valider.bind(this)
         this.select = this.select.bind(this)
+        this.reset = this.reset.bind(this)
+        this.editBIO = this.editBIO.bind(this)
+        this.submit = this.submit.bind(this)
     }
     goToProfil(login){
         this.setState({page : 'profil',login : login,key : this.state.key + 1,keyword : undefined})
@@ -55,7 +58,7 @@ class Twall extends Component{
     isProfil(){
         if (this.state.page === 'profil'){
             console.log(this.state.key)
-            return <Profil key={this.state.login + this.state.key} login={this.state.login} goToProfil={this.goToProfil} edit={this.edit}/>
+            return <Profil key={this.state.login + this.state.key} login={this.state.login} goToProfil={this.goToProfil} edit={this.edit}  editBIO={this.editBIO}/>
         }
         else return this.profil()
     }
@@ -64,9 +67,19 @@ class Twall extends Component{
         document.getElementById("EDIT").style.visibility = "visible"
     }
 
-    valider(){
-        document.getElementById("toColor").style.zIndex = 0
+    reset(){
         document.getElementById("EDIT").style.visibility = "hidden"
+        document.getElementById("EDITBIO").style.visibility = "hidden"
+
+        for (let i = 1 ; i < 9 ; i++ ){
+            document.getElementById(String(i)).style.border = ""
+        }
+    }
+
+    valider(){
+        document.getElementById("EDIT").style.visibility = "hidden"
+
+        
 
         var res = -1
         for (let i = 1 ; i < 9 ; i++ ){
@@ -91,6 +104,10 @@ class Twall extends Component{
         })
     }
 
+    editBIO(){
+        document.getElementById("EDITBIO").style.visibility = "visible"
+    }
+
     select(id){
 
         for (let i = 1 ; i < 9 ; i++ ){
@@ -100,6 +117,25 @@ class Twall extends Component{
         document.getElementById(id).style.border = "solid"
         document.getElementById(id).style.borderColor = "rgba(245, 2, 2, 0.438)"
     }
+
+    submit(event){
+        const data = new FormData(event.target)
+       
+        document.getElementById("EDITBIO").style.visibility = "hidden"
+        document.getElementById("newCom").value = ""
+        event.preventDefault()
+
+        if(data.get("newCom") == "") return
+        
+
+        const info = { bio : data.get("newCom")}
+
+        axios.post("http://localhost:4000/api/bio/user/",info,{withCredentials : true})
+        .then((res) => this.goToProfil(this.props.login))
+        .catch((err) => console.log(err))
+    }
+
+
     render(){
         return <div class="parentTwall">
         <div class="div1Twall"> 
@@ -111,7 +147,7 @@ class Twall extends Component{
         <div id="valider" class="div3Twall"> 
             {this.isProfil()}          
         </div>
-        <div id="EDIT" class="div4Twall"> 
+        <div id="EDIT" class="div4Twall" onMouseLeave={() => this.reset()}> 
             <img id="1" className="imgPicEdit" src={profil1} onClick={() => this.select("1")}/>
             <img id="2" className="imgPicEdit" src={profil2} onClick={() => this.select("2")}/>
             <img id="3" className="imgPicEdit" src={profil3} onClick={() => this.select("3")}/>
@@ -123,6 +159,14 @@ class Twall extends Component{
             <div className="contenerBEdit">
                 <button id="bEDIT" className="bn39" onClick={() => this.valider()}><span class="bn39span">Valider</span></button>
             </div>
+        </div>
+        <div id="EDITBIO" class="div5Twall" onMouseLeave={() => this.reset()}>
+        <div id="NewMessage">
+                    <form id="formEDIT" onSubmit={this.submit}>
+                        <textarea id="newCom" rows="5" name="newCom" placeholder="  Votre bio"></textarea>
+                        <button className="bn30" id="addCom" type="submit" >POST</button>
+                    </form>
+                </div>
         </div>
         </div> 
     }
