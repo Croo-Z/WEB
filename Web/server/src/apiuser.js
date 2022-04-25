@@ -187,11 +187,11 @@ function init(db) {
         });
     //supprime un utilisateur
     router
-        .route("/user/:user_id")
+        .route("/user/:user_login")
         .delete(async (req, res)=>{
             try{
                 var user = null
-                await users.get(req.params.user_id).then((val)=>user=val)
+                await users.getID(req.params.user_login).then((val)=>user=val)
                 .catch((err)=>{
                     res.status(401).json({
                         status: 401,
@@ -199,7 +199,7 @@ function init(db) {
                     });
                     return;
                 })
-                await users.delete(user.login).then(()=>{res.status(200).json({
+                await users.delete(req.params.user_login).then(()=>{res.status(200).json({
                     status: 200,
                     message: "Suppresion effectuee"
                 });

@@ -36,10 +36,10 @@ class BarInfo extends Component{
         return <div className="infoContener">
             <div id="toColor" className="iconContener">
                 <img src={logo} id="logoInfo"/>
-                <BiHome id="1I" className="iconBarInfo" onClick={() =>this.props.goToTwall()}/>
-                <BiUserCircle id="1I" className="iconBarInfo" onClick={() =>this.props.goToProfil(this.props.login)} />
-                <BiMessage id="1I" className="iconBarInfo" />
-                <BiLogOut id="1I" className="iconBarInfo" onClick={this.logout}/>
+                <BiHome id="home1" className="iconBarInfo" onClick={() =>this.props.goToTwall()}/>
+                <BiUserCircle id="user1" className="iconBarInfo" onClick={() =>this.props.goToProfil(this.props.login)} />
+                <BiMessage id="message1" className="iconBarInfo" />
+                <BiLogOut id="logout1" className="iconBarInfo" onClick={this.logout}/>
             </div>
         </div>
     }
