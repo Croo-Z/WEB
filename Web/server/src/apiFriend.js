@@ -21,7 +21,6 @@ function init(db) {
     //cree une relation d amitie
     router.route("/friend/user/:user_login/friends")
     .put( async (req, res) => {
-        console.log(req.session)
         if (!req.session.userid) {
             res.status(400).json({
                 status : 400,

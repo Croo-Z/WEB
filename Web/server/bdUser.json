@@ -2,5 +2,7 @@
 {"login":"pikachu","password":"1234","lastname":"chu","firstname":"pka","connected":false,"_id":"G8Y35JWh21dpRM3f"}
 {"login":"GAMERLORD","password":"aq","lastname":"titi","firstname":"tata","connected":true,"_id":"aTiRsmWQG2g6Pzu9"}
 {"login":"Azarel","password":"1234","lastname":"rel","firstname":"Aza","connected":true,"_id":"iXRxF3moT3YljYs6"}
-{"login":"CrooZ","password":"crooz","lastname":"Axel","firstname":"Longuet","connected":true,"_id":"n36Uc4zsFGCr84Rh"}
 {"login":"Croo","password":"crooz","lastname":"a","firstname":"b","connected":true,"_id":"lzecCYNhZUgxI63H"}
+{"login":"CrooZ","password":"crooz","lastname":"Axel","firstname":"Longuet","connected":true,"_id":"n36Uc4zsFGCr84Rh"}
+{"login":"test","password":"test","lastname":"test","firstname":"test","connected":true,"_id":"EFSxJ1YKh4wEhDT9"}
+{"$$deleted":true,"_id":"EFSxJ1YKh4wEhDT9"}
