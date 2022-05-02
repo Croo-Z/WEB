@@ -16,7 +16,7 @@ function init(db) {
     });
     const users = new Users.default(db)
     const pp = new PP.default(db)
-    //cree message
+    
     router.route("/pp/user")
         .post(async (req,res) => {
             

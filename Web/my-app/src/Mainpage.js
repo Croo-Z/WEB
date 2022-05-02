@@ -4,7 +4,6 @@ import Connexion from "./Connexion";
 import Start from "./Start";
 import axios from "axios";
 import Twall from "./Twall"
-import Profil from "./Profil";
 axios.defaults.withCredentials = true;
 
 class Mainpage extends Component{

@@ -268,7 +268,6 @@ function init(db) {
     router
         .route("/user/token/:login")
         .get(async (req, res)=>{
-            console.log("JE RENTRE")
             try{
                 if(!req.params.login){
                     res.status(404).json({

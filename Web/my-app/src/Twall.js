@@ -57,7 +57,6 @@ class Twall extends Component{
 
     isProfil(){
         if (this.state.page === 'profil'){
-            console.log(this.state.key)
             return <Profil key={this.state.login + this.state.key} login={this.state.login} goToProfil={this.goToProfil} edit={this.edit}  editBIO={this.editBIO}/>
         }
         else return this.profil()

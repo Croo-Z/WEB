@@ -10,92 +10,91 @@ chai.should();
 
 mocha.describe("Test de l'API friend", () => {
     mocha.it("user", (done) => {
-        const request = chai.request(app.default).keepOpen();
-        const user = {
-            login: "pikachu",
-            password: "1234",
-            lastname: "chu",
-            firstname: "pika"
-        };
-        
-        const user1 = {
-            login: "john",
-            password: "1234",
-            lastname: "jo",
-            firstname: "hn"
-        };
+        var agent = chai.request.agent(app.default)
+        const log = {
+            login : "CrooZ",
+            password : "crooz"
+        }
 
-        const login = {
-            login: "pikachu",
-            password: "1234"
-        };
-
-        const login2 = {
-            login : "pikachu"
-        };
-        const login3 = {
-            login : "jo"
-        };
-        request
-            .put('/api/user')
-            .send(user)
-
+        agent
+            .post('/api/user/login')
+            .send(log)
             .then((res) => {
-                res.should.have.status(201);
-                console.log(`Retrieving user ${res.body.id}`)
                 return Promise.all([
-                    request
-                        .put(`/api/friend/user/20/friends`)
-                        .send(login2)
+
+                    //Ajout ami
+                    agent
+                        .put(`/api/friend/user/___MOI___/friends`)
                         .then((res) => {
                             res.should.have.status(401)
                             chai.assert.deepEqual(res.body.message, "Utilisateur inconnu")
                         }),
                     
-                    request
-                        .put(`/api/friend/user/${res.body.id}/friends`)
-                        .send(login2)
-                        .then((res) => {
-                            res.should.have.status(402)
-                            chai.assert.deepEqual(res.body.message, "Impossible de se suivre soit meme")
-                        }),
+                    agent
+                    .put(`/api/friend/user/CrooZ/friends`)
+                    .then((res) => {
+                        res.should.have.status(403)
+                        chai.assert.deepEqual(res.body.message, "Impossible de s'auto ajouter")
+                    }),
 
-                    request
-                        .put(`/api/friend/user/${res.body.id}/friends`)
-                        .send(login3)
-                        .then((res) => {
-                            res.should.have.status(200)
-                            chai.assert.deepEqual(res.body.id, 1)
-                        }),
+                    agent
+                    .put(`/api/friend/user/u1/friends`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                    }),
 
-                    request
-                        .get(`/api/friend/user/${res.body.id}/friends`)
-                        .then((res) => {
-                            res.should.have.status(200)
-                        }),
-                        
-                    request
-                        .get(`/api/friend/user/${res.body.id}/friends/2`)
-                        .then((res) => {
-                            res.should.have.status(401)
-                        }),
+                    agent
+                    .delete(`/api/friend/user/friends/u1`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                        chai.assert.deepEqual(res.body.message, "unfollow u1")
+                    }),
 
-                    request
-                        .delete(`/api/friend/user/${res.body.id}/friends/2`)
-                        .then((res) => {
-                            res.should.have.status(401)
-                        }),
+                    //recuperer les amis
+                    agent
+                    .get(`/api/friend/user/CrooZ/friends`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                    }),
 
-                    request
-                        .get(`/api/friend/user/${res.body.id}/infos`)
-                        .then((res) => {
-                            res.should.have.status(200)
-                        }),
-    
+                    agent
+                    .get(`/api/friend/user/__MOI__/friends`)
+                    .then((res) => {
+                        res.should.have.status(401)
+                        chai.assert.deepEqual(res.body.message, "Utilisateur inconnu")
+                    }),
+
+                    agent
+                    .get(`/api/friend/user/friends/Azarel`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                        chai.assert.deepEqual(res.body.message, "Amis avec Azarel")
+                    }),
+
+                    agent
+                    .get(`/api/friend/user/friends/GAMERLORD`)
+                    .then((res) => {
+                        res.should.have.status(205)
+                        chai.assert.deepEqual(res.body.message, "Pas amis")
+                    }),
+
+                    agent
+                    .get(`/api/friend/followers/CrooZ`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                        chai.assert.deepEqual(res.body.nbFollowers, 3)
+                    }),
+
+                    agent
+                    .get(`/api/friend/followers/u1`)
+                    .then((res) => {
+                        res.should.have.status(200)
+                        chai.assert.deepEqual(res.body.nbFollowers, 1)
+                    }),
                 ])
             }).then(() => done(), (err) => done(err))
             .finally(() => {
-                request.close()
+                agent.close()
             })
     })
 })
