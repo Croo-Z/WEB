@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5d8d1522-45f7-4717-a83f-1684ca68a5a2",
+		"_postman_id": "1da7ee4a-d656-4a7a-b24e-aa1cbe409473",
 		"name": "users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -372,15 +372,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:4000/api/user/A4JbsgTSTMqYK4A6",
 							"protocol": "http",

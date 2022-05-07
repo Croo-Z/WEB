@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8a9454aa-6581-4de7-9249-4a3a8354b653",
+		"_postman_id": "3b526ff7-aa4d-4dab-a8ba-f289b30dc84a",
 		"name": "Friends",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -440,7 +440,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/friend/user/CrooZ/friends/Azarel",
+					"raw": "http://localhost:4000/api/friend/user/iXRxF3moT3YljYs6/friends/n36Uc4zsFGCr84Rh",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -450,9 +450,9 @@
 						"api",
 						"friend",
 						"user",
-						"CrooZ",
+						"iXRxF3moT3YljYs6",
 						"friends",
-						"Azarel"
+						"n36Uc4zsFGCr84Rh"
 					]
 				}
 			},
