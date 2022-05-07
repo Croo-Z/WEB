@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "527a392f-9b6f-42e6-a1bc-e43cae6dc6b1",
+		"_postman_id": "fd4363a5-3a39-4ed3-bf4b-0ee5260fe0b5",
 		"name": "Messages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -198,7 +198,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"login\" : \"CrooZ\",\n    \"message\" : \"First\"\n}",
+					"raw": "{\n    \"login\" : \"CrooZ\",\n    \"message\" : \"coucou\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -876,7 +876,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/messages/user/messages/friends",
+					"raw": "http://localhost:4000/api/messages/user/message/iXRxF3moT3YljYs6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -886,150 +886,12 @@
 						"api",
 						"messages",
 						"user",
-						"messages",
-						"friends"
+						"message",
+						"iXRxF3moT3YljYs6"
 					]
 				}
 			},
 			"response": [
-				{
-					"name": "getListMessageFromFriend",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:4000/api/messages/user/messages/friends",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"api",
-								"messages",
-								"user",
-								"messages",
-								"friends"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "http://localhost:3000"
-						},
-						{
-							"key": "Vary",
-							"value": "Origin"
-						},
-						{
-							"key": "Access-Control-Allow-Credentials",
-							"value": "true"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "311"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"137-2LjZFADyYpExv64GK7s5ReBSwWE\""
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 27 Apr 2022 17:22:35 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": 200,\n    \"messages\": [\n        {\n            \"loginFriend\": \"Azarel\",\n            \"message\": [\n                \"J'aurai jamais du prendre crypto 💀\",\n                \"Bonjour c'est ka suite\",\n                \"Bonjour j'adore tester mes trucs qui marche pas\",\n                \"Bonjour je suis vraiment nul en programmation\"\n            ]\n        },\n        {\n            \"loginFriend\": \"pikachu\",\n            \"message\": [\n                \"First\",\n                \"Je peux post des msg\\n\",\n                \"CrooZ = bG\"\n            ]\n        }\n    ]\n}"
-				},
-				{
-					"name": "getListMessageFromFriend",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:4000/api/messages/user/messages/friends",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"api",
-								"messages",
-								"user",
-								"messages",
-								"friends"
-							]
-						}
-					},
-					"status": "Unauthorized",
-					"code": 401,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "http://localhost:3000"
-						},
-						{
-							"key": "Vary",
-							"value": "Origin"
-						},
-						{
-							"key": "Access-Control-Allow-Credentials",
-							"value": "true"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "48"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"30-708mO1WH8e160PNHac+r6qXfUH8\""
-						},
-						{
-							"key": "Date",
-							"value": "Mon, 25 Apr 2022 22:51:25 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": 401,\n    \"message\": \"Utilisateur non loger\"\n}"
-				},
 				{
 					"name": "getMessageFromFriend",
 					"originalRequest": {
@@ -1098,6 +960,75 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": 401,\n    \"message\": \"Utilisateur inconnu\"\n}"
+				},
+				{
+					"name": "getMessageFromFriend",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/messages/user/message/iXRxF3moT3YljYs6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"messages",
+								"user",
+								"message",
+								"iXRxF3moT3YljYs6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-tpMtKjeuo2ELl1TvqrZppdO1fRw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 07 May 2022 14:14:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"listMessages\": [\n        \"J'aurai jamais du prendre crypto 💀\",\n        \"Bonjour c'est ka suite\",\n        \"Bonjour j'adore tester mes trucs qui marche pas\",\n        \"Bonjour je suis vraiment nul en programmation\"\n    ]\n}"
 				}
 			]
 		},
@@ -2063,6 +1994,168 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": 200,\n    \"message\": \"Message coucou supprime\"\n}"
+				}
+			]
+		},
+		{
+			"name": "getListMessageFromFriend",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/messages/user/messages/friends",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"messages",
+						"user",
+						"messages",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getListMessageFromFriend",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/messages/user/messages/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"messages",
+								"user",
+								"messages",
+								"friends"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "311"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"137-2LjZFADyYpExv64GK7s5ReBSwWE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Apr 2022 17:22:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"messages\": [\n        {\n            \"loginFriend\": \"Azarel\",\n            \"message\": [\n                \"J'aurai jamais du prendre crypto 💀\",\n                \"Bonjour c'est ka suite\",\n                \"Bonjour j'adore tester mes trucs qui marche pas\",\n                \"Bonjour je suis vraiment nul en programmation\"\n            ]\n        },\n        {\n            \"loginFriend\": \"pikachu\",\n            \"message\": [\n                \"First\",\n                \"Je peux post des msg\\n\",\n                \"CrooZ = bG\"\n            ]\n        }\n    ]\n}"
+				},
+				{
+					"name": "getListMessageFromFriend",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/messages/user/messages/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"messages",
+								"user",
+								"messages",
+								"friends"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-708mO1WH8e160PNHac+r6qXfUH8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Apr 2022 22:51:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 401,\n    \"message\": \"Utilisateur non loger\"\n}"
 				}
 			]
 		}

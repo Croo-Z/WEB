@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1da7ee4a-d656-4a7a-b24e-aa1cbe409473",
+		"_postman_id": "345bb107-17d8-45f0-8a7b-04b3457588bd",
 		"name": "users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -443,7 +443,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"login\" : \"CrooZ\",\n    \"password\" : \"crooz\",\n    \"lastname\" : \"a\",\n    \"firstname\" : \"b\"\n}",
+					"raw": "{\n    \"login\" : \"Croo\",\n    \"password\" : \"crooz\",\n    \"lastname\" : \"a\",\n    \"firstname\" : \"b\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

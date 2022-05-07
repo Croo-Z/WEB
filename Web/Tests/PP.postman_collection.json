@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1a3cd50f-0ed4-404f-a6f8-80477954b557",
+		"_postman_id": "02d653bf-ecc5-4859-badd-cec4ef04a1ac",
 		"name": "PP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -305,7 +305,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/pp/get/CrooZZ",
+					"raw": "http://localhost:4000/api/pp/get/CrooZ",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -315,7 +315,7 @@
 						"api",
 						"pp",
 						"get",
-						"CrooZZ"
+						"CrooZ"
 					]
 				}
 			},

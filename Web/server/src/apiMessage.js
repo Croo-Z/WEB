@@ -388,7 +388,7 @@ function init(db) {
         .route("/messages/user/messages")
         .get(async (req, res) => {
             try{
-                if (req.session.userid){
+                if (!req.session.userid){
                     res.status(401).json({
                         status: 401,
                         message: "Utilisateur inconnu"
@@ -485,10 +485,10 @@ function init(db) {
         .route("/messages/user/message/:friend_id")
         .get(async (req, res) => {
             try{
-                if (req.session.userid){
+                if (!req.session.userid){
                     res.status(401).json({
                         status: 401,
-                        message: "Utilisateur inconnu"
+                        message: "Utilisateur inconnu2"
                     });
                     return;
                 }
@@ -503,7 +503,7 @@ function init(db) {
                 if (friend == null){
                     res.status(401).json({
                         status: 401,
-                        message: "Utilisateur inconnu"
+                        message: "Utilisateur inconnu1"
                     });
                     return;
                 }
@@ -516,11 +516,11 @@ function init(db) {
                 if (usr == null){
                     res.status(401).json({
                         status: 401,
-                        message: "Utilisateur inconnu"
+                        message: "Utilisateur inconnu3"
                     });
                     return;
                 }
-
+                console.log("REQ",req.session.userid)
                 var ami = null
                 await friends.isFriend(req.session.userid, friend.login).then((val)=>{
                     ami = val
